@@ -1,0 +1,10 @@
+int divideWord(String menu) {
+        int divideWord = 0;
+        if (menu.contains("?")) {                           // 수정 및 삭제 입력 시 입장
+            String[] s1 = menu.split("\\?");        // 1차 분할 (메뉴 기능 & id)
+            String[] s2 = s1[1].split("=");         // 2차 분할 (id & id 번호)
+            this.pasteId = Integer.parseInt(s2[1]);      // String형 숫자를 정수로 변환
+            divideWord = checkMenu(s1[0]);
+        } else divideWord = checkMenu(menu);            // 수정 및 삭제 외 입장
+        return divideWord;
+    }           // 메뉴 문자 나누기
